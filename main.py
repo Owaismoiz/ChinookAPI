@@ -50,3 +50,19 @@ def top_countries():
     """
     df = pd.read_sql(query, con)
     return df.to_dict(orient="records")
+
+# 4) Long tracks by genre (average track length >= 5 minutes)
+@app.get("/long_tracks_by_genre")
+def long_tracks_by_genre():
+    con = get_connection()
+    query= """
+    SELECT g.Name AS Genre,
+    ROUND(AVG(t.Milliseconds)/60000,2) AS AvgMinutes
+    FROM Track t
+    JOIN Genre g on g.GenreId = t.GenreId
+    GROUP BY g.Name
+    HAVING AvgMinutes >= 5
+    ORDER BY AvgMinutes DESC;
+    """
+    df = pd.read_sql(query,con)
+    return df.to_dict(orient="records")
