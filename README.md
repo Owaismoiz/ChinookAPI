@@ -1,0 +1,22 @@
+# Chinook API 
+
+A simple FastAPI project exposing queries from the Chinook music database.
+
+## Features
+
+- `/customers_usa` → List of all USA customers
+- `/invoices_above_20` → Invoices with Total >= $20
+- `/top_countries` → Top 3 countries by revenue
+
+## Setup
+
+1. Clone repo and install dependencies:
+   ```bash
+   pip install -r requirements.txt
+
+2. Run the API:
+   uvicorn main:app --reload
+
+3. Open in browser:
+   Home: http://127.0.0.1:8000/
+   Docs: http://127.0.0.1:8000/docs
