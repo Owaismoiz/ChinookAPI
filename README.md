@@ -10,6 +10,7 @@ A simple FastAPI project exposing queries from the Chinook music database.
 - `/long_tracks_by_genre` → Genres with Average lenght >= 5 minutes
 - `/rock_genre` → List of all the "Rock" Genre songs
 - `/avg_invoice_per_country` → Average Invoice of each country 
+- `/min_max_track_length` → Min&Max track length of each genre
 ## Setup
 
 1. Clone repo and install dependencies:

@@ -94,3 +94,18 @@ def avg_invoice_per_country():
     df = pd.read_sql(query, con)
     return df.to_dict(orient="records")
 
+# 7) Min & Max track length of each genre
+@app.get("/min_max_track_length")
+def min_max_track_length():
+    con = get_connection()
+    query = """
+    SELECT g.Name AS Genre,
+           ROUND(MIN(t.Milliseconds)/60000.0,2) AS MinMinutes,
+           ROUND(MAX(t.Milliseconds)/60000.0,2) AS MaxMinutes
+    FROM Track t
+    JOIN Genre g ON g.GenreId = t.GenreId
+    GROUP BY g.Name
+    ORDER BY MaxMinutes DESC;
+    """
+    df = pd.read_sql(query, con)
+    return df.to_dict(orient="records")
