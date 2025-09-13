@@ -8,6 +8,7 @@ A simple FastAPI project exposing queries from the Chinook music database.
 - `/invoices_above_20` → Invoices with Total >= $20
 - `/top_countries` → Top 3 countries by revenue
 - `/long_tracks_by_genre` → Genres with Average lenght >= 5 minutes
+- `/rock_genre` → List of all the "Rock" Genre songs
 
 ## Setup
 

@@ -66,3 +66,18 @@ def long_tracks_by_genre():
     """
     df = pd.read_sql(query,con)
     return df.to_dict(orient="records")
+
+# 5) Tracks from the rock genre 
+@app.get("/rock_genre")
+def rock_genre():
+    con = get_connection()
+    query = """
+    SELECT g.Name as Genre ,
+    t.Name as SongName
+    FROM Track t
+    JOIN Genre g on g.GenreId = t.GenreId
+    WHERE g.Name = 'Rock';
+    """
+    df = pd.read_sql(query,con)
+    return df.to_dict(orient="records")
+
