@@ -81,3 +81,16 @@ def rock_genre():
     df = pd.read_sql(query,con)
     return df.to_dict(orient="records")
 
+# 6) Average invoice per country
+@app.get("/avg_invoice_per_country")
+def avg_invoice_per_country():
+    con = get_connection()
+    query = """
+    SELECT BillingCountry, ROUND(AVG(Total),2) AS AvgInvoice
+    FROM Invoice
+    GROUP BY BillingCountry
+    ORDER BY AvgInvoice DESC;
+    """
+    df = pd.read_sql(query, con)
+    return df.to_dict(orient="records")
+
