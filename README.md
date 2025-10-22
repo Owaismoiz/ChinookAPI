@@ -23,3 +23,8 @@ A simple FastAPI project exposing queries from the Chinook music database.
 3. Open in browser:
    Home: http://127.0.0.1:8000/
    Docs: http://127.0.0.1:8000/docs
+
+## 📓 Notebook
+
+- [Chinook SQL Analysis](./chinook_sql_analysis.ipynb):  
+  Contains SQL queries, pandas analysis, and visualizations exploring customer behavior, revenue by country, and track insights using the Chinook sample database.
